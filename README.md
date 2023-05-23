@@ -22,7 +22,7 @@ This is a web application built using React.js, Node.js, Express.js, and MongoDB
 
 1. Clone the repository:
 
-git clone https://github.com/saikumar1277/expense-tracker.git
+git clone https://github.com/saikumar1277/expense_tracker.git
 # Install client dependencies
 cd client
 npm install
