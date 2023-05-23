@@ -14,9 +14,9 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   //action
-  async function getTransactions() {
+  async function getTransactions(user) {
     try {
-      const res = await axios.get("/api/v1/transaction");
+      const res = await axios.post("/api/v1/transaction", user);
       dispatch({
         type: "GET_TRANSACTION",
         payload: res.data.data,
@@ -51,7 +51,11 @@ export const GlobalProvider = ({ children }) => {
       },
     };
     try {
-      const res = await axios.post("/api/v1/transaction", transaction, config);
+      const res = await axios.post(
+        "/api/v1/transaction/add-transcation",
+        transaction,
+        config
+      );
       dispatch({
         type: "ADD_TRANSACTION",
         payload: res.data.data,

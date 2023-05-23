@@ -17,8 +17,11 @@ app.use(express.json());
 if (process.env.NODE_ENV == "development") {
   app.use(morgan("dev"));
 }
-
+//transaciion route
 app.use("/api/v1/transaction", transcations);
+
+//user route
+app.use("/api/v1/users", require("./routes/userRoute"));
 
 app.listen(PORT, () => {
   console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`);

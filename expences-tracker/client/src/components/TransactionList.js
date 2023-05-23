@@ -4,8 +4,11 @@ import Transaction from "./Transaction";
 
 export default function TransactionList() {
   const { transactions, getTransactions } = useContext(GlobalContext);
+  const userId = JSON.parse(localStorage.getItem("user"))["_id"];
   useEffect(() => {
-    getTransactions();
+    getTransactions({
+      userid: userId,
+    });
   }, []);
   return (
     <div>

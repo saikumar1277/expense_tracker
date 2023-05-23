@@ -5,7 +5,11 @@ const Transcation = require("../models/Transcation");
 
 exports.getTransactions = async (req, res, next) => {
   try {
-    const transactions = await Transcation.find();
+    // const userId = JSON.parse(localStorage.getItem("user"))["_id"];
+    const transactions = await Transcation.find({
+      userid: req.body.userid,
+    });
+    console.log(transactions);
     return res.status(201).json({
       success: true,
       count: transactions.length,

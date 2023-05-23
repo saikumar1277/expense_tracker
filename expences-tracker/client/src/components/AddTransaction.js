@@ -7,7 +7,11 @@ export default function AddTransaction() {
 
   const onsubmit = (e) => {
     e.preventDefault();
+
+    const userId = JSON.parse(localStorage.getItem("user"))["_id"];
+    // console.log(userid);
     const newTransaction = {
+      userid: userId,
       text,
       amount: +amount,
     };
